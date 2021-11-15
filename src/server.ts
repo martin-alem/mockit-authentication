@@ -25,6 +25,10 @@ app.enable("trust proxy");
 app.use(cors(corsOptions));
 app.use(express.json());
 
+app.get("/", (req: Request, res: Response) => {
+  res.status(200).json({ status: 200, statusText: "OK", message: "Authentication server up and running" });
+});
+
 app.use("/api/v1/linkedin/", linkedInRouter);
 
 app.all("*", (req: Request, res: Response) => {
