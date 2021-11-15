@@ -10,9 +10,16 @@ interface Options {
   };
 }
 
-function fetch(url: string, method: string, option: Options): Promise<AxiosResponse>{
+function fetch(option: Options): Promise<AxiosResponse> {
   return new Promise((resolve, reject) => {
-    axios.post(url, qs.stringify(option.data), option.headers).then(resolve).catch(reject);
+    let data = {};
+    if (option["headers"]["Content-type"] === "application/x-www-form-urlencoded") {
+      data = qs.stringify(option["data"]);
+    } else {
+      data = JSON.stringify(option["data"]);
+    }
+
+    axios(option).then(resolve).catch(reject);
   });
 }
 

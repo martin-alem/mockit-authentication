@@ -9,18 +9,20 @@ async function fetchAccessTokenMiddleware(req: Request, res: Response, next: Nex
     const url = "https://www.linkedin.com/oauth/v2/accessToken";
     const method = "POST";
     const option = {
+      url,
+      method,
       headers: {
         "content-type": "application/x-www-form-urlencoded",
       },
       data: {
-        "grant_type": process.env.GRANT_TYPE,
-        "code": req.body.code,
-        "redirect_uri": process.env.REDIRECT_URI,
-        "client_id": process.env.CLIENT_ID,
-        "client_secret": process.env.CLIENT_SECRET,
+        grant_type: process.env.GRANT_TYPE,
+        code: req.body.code,
+        redirect_uri: process.env.REDIRECT_URI,
+        client_id: process.env.CLIENT_ID,
+        client_secret: process.env.CLIENT_SECRET,
       },
     };
-    const response: AxiosResponse = await fetch(url, method, option);
+    const response: AxiosResponse = await fetch(option);
 
     if (response.status !== 200) {
       next(new ErrorHandler("Could not fetch access token", 403));
