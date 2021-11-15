@@ -2,9 +2,14 @@ import express, { Request, Response, Express } from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 
+dotenv.config();
+
 import linkedInRouter from "./routes/linkedInLoginRoute.js";
 
-dotenv.config();
+import connectionToDatabase from "./database/connection.js";
+
+
+connectionToDatabase()
 
 const app: Express = express();
 
