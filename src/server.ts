@@ -2,6 +2,8 @@ import express, { Request, Response, Express } from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 
+import linkedInRouter from "./routes/linkedInLoginRoute";
+
 dotenv.config();
 
 const app: Express = express();
@@ -18,6 +20,8 @@ const corsOptions = {
 app.enable("trust proxy");
 app.use(cors(corsOptions));
 app.use(express.json());
+
+app.use("/api/v1/linkedin/", linkedInRouter);
 
 app.all("*", (req: Request, res: Response) => {
   res.status(404).json({ status: 404, statusText: "fail", message: "The path you are requesting does not exist" });

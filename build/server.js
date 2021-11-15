@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const dotenv_1 = __importDefault(require("dotenv"));
+const linkedInLoginRoute_1 = __importDefault(require("./routes/linkedInLoginRoute"));
 dotenv_1.default.config();
 const app = (0, express_1.default)();
 //Cors configuration
@@ -19,6 +20,7 @@ const corsOptions = {
 app.enable("trust proxy");
 app.use((0, cors_1.default)(corsOptions));
 app.use(express_1.default.json());
+app.use("/api/v1/linkedin/", linkedInLoginRoute_1.default);
 app.all("*", (req, res) => {
     res.status(404).json({ status: 404, statusText: "fail", message: "The path you are requesting does not exist" });
 });
