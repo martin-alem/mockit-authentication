@@ -5,7 +5,7 @@ import { Request, Response, NextFunction } from "express";
 import ErrorHandler from "../utils/ErrorHandler.js";
 import Logger from "../utils/Logger.js";
 
-function checkStateMiddleware(req: Request, res: Response, next: NextFunction) {
+function checkStateMiddleware(req: Request, res: Response, next: NextFunction): void {
   try {
     const state = req.body.state;
     if (state !== process.env.STATE) {
