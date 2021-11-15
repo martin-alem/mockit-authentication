@@ -8,8 +8,7 @@ import linkedInRouter from "./routes/linkedInLoginRoute.js";
 
 import connectionToDatabase from "./database/connection.js";
 
-
-connectionToDatabase()
+connectionToDatabase();
 
 const app: Express = express();
 
@@ -32,7 +31,7 @@ app.all("*", (req: Request, res: Response) => {
   res.status(404).json({ status: 404, statusText: "fail", message: "The path you are requesting does not exist" });
 });
 
-const PORT: string = process.env.PORT || `3000`;
+const PORT: string = process.env.PORT || `4000`;
 app.listen(PORT, () => {
   console.log(`Authentication Server Listening On Port ${PORT}`);
 });
