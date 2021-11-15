@@ -2,7 +2,7 @@ import express, { Request, Response, Express } from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 
-import linkedInRouter from "./routes/linkedInLoginRoute";
+import linkedInRouter from "./routes/linkedInLoginRoute.js";
 
 dotenv.config();
 

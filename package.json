@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Authentication Server",
   "main": "server.js",
+  "type": "module",
   "scripts": {
     "start:build": "tsc -w",
     "start:run": "nodemon build/server.js",

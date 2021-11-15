@@ -1,6 +1,5 @@
-import FileReadWrite from "./FileReadWrite";
-import ErrorHandler from "./ErrorHandler";
-import { getFormattedDate } from "./util";
+import FileReadWrite from "./FileReadWrite.js";
+import { getFormattedDate } from "./util.js";
 import path from "path";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
@@ -15,7 +14,7 @@ class Logger {
    * @param error The error to be logged
    * @param file The file the error occurred in.
    */
-  static log(type: string, error: ErrorHandler, file: string) {
+  static log(type: string, error: Error, file: string) {
     if (process.env.MODE === "development") {
       console.log(`${type.toUpperCase()}: ${error} - ${file} - ${new Date()}`);
     } else if (process.env.MODE === "production") {
