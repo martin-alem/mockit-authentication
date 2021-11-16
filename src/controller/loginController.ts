@@ -1,9 +1,9 @@
 import { Request, Response, NextFunction } from "express";
-import ErrorHandler from "./../utils/ErrorHandler.js";
-import Logger from "./../utils/Logger.js";
+import ErrorHandler from "../utils/ErrorHandler.js";
+import Logger from "../utils/Logger.js";
 import jwt from "jsonwebtoken";
 
-function LinkedInLoginController(req: Request, res: Response, next: NextFunction): void {
+function loginController(req: Request, res: Response, next: NextFunction): void {
   try {
     const user = req.body.user;
     const profile = req.body.profile;
@@ -22,4 +22,4 @@ function LinkedInLoginController(req: Request, res: Response, next: NextFunction
   }
 }
 
-export default LinkedInLoginController;
+export default loginController;

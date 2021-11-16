@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 import linkedInRouter from "./routes/linkedInLoginRoute.js";
+import googleRouter from "./routes/googleLoginRoute.js";
 
 import connectionToDatabase from "./database/connection.js";
 
@@ -30,6 +31,7 @@ app.get("/", (req: Request, res: Response) => {
 });
 
 app.use("/api/v1/linkedin/", linkedInRouter);
+app.use("/api/v1/google/", googleRouter);
 
 app.all("*", (req: Request, res: Response) => {
   res.status(404).json({ status: 404, statusText: "fail", message: "The path you are requesting does not exist" });

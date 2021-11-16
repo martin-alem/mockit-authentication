@@ -1,6 +1,6 @@
 import express, { Request, Response, NextFunction, Router } from "express";
 import ErrorHandler from "./../utils/ErrorHandler.js";
-import LinkedInLoginController from "./../controller/linkedInLoginController.js";
+import LinkedInLoginController from "../controller/loginController.js";
 import checkStateMiddleware from "./../middleware/checkStateMiddleware.js";
 import fetchAccessTokenMiddleware from "./../middleware/fetchAccessTokenMiddleware.js";
 import fetchUserInfoMiddleware from "./../middleware/fetchUserInfoMiddleware.js";

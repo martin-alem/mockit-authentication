@@ -3,11 +3,13 @@ import mongoose from "mongoose";
 const ProfileSchema = new mongoose.Schema({
   nickName: {
     type: String,
-    required: true,
+    required: false,
+    default: "",
   },
   emailAddress: {
     type: String,
-    required: true,
+    required: false,
+    default: "",
   },
   userId: {
     type: mongoose.Types.ObjectId,
@@ -15,15 +17,15 @@ const ProfileSchema = new mongoose.Schema({
   },
   languages: {
     type: [],
-    required: true,
+    required: false,
   },
   difficulty: {
     type: [],
-    required: true,
+    required: false,
   },
   lastUpdate: {
     type: Date,
-    required: true
+    required: true,
   },
 });
 
