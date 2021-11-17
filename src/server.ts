@@ -32,6 +32,10 @@ app.get("/", (req: Request, res: Response) => {
 
 app.use("/api/v1/linkedin/", linkedInRouter);
 app.use("/api/v1/google/", googleRouter);
+app.get("/api/v1/logout", (req: Request, res: Response) => {
+  res.clearCookie("_access_token");
+  res.end();
+});
 
 app.all("*", (req: Request, res: Response) => {
   res.status(404).json({ status: 404, statusText: "fail", message: "The path you are requesting does not exist" });
