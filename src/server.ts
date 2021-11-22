@@ -33,7 +33,7 @@ app.get("/", (req: Request, res: Response) => {
 app.use("/api/v1/linkedin/", linkedInRouter);
 app.use("/api/v1/google/", googleRouter);
 app.get("/api/v1/logout", (req: Request, res: Response) => {
-  res.clearCookie("_access_token", { domain: "localhost" });
+  res.clearCookie("_access_token", { domain: ".mockit.org" });
   res.end();
 });
 

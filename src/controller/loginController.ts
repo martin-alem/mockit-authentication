@@ -12,7 +12,7 @@ function loginController(req: Request, res: Response, next: NextFunction): void 
     res.cookie("_access_token", `${accessToken}`, {
       expires: new Date(Date.now() + 1 * 3600000),
       httpOnly: true,
-      // domain: ".mockit.org",
+      domain: ".mockit.org",
       sameSite: "lax",
     });
     res.status(200).json({ status: "success", statusCode: 200, user, profile });
